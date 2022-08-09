@@ -66,7 +66,7 @@ namespace Exercicio
 
             else if (a == 3)
             {
-                Console.WriteLine("Informe valores A, B e C (na mesma linha)");
+                Console.WriteLine("Informe valores A B e C (na mesma linha)");
                 string[] vet2 = Console.ReadLine().Split(' ');
                 int n1 = int.Parse(vet2[0]);
                 int n2 = int.Parse(vet2[1]);
