@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 
 namespace Exercicio
@@ -17,71 +17,100 @@ namespace Exercicio
 
         }
 
+        static string RetornaClassificacaoImc(double a, double b)
+        {
+            double calculo;
+            
+
+            calculo = a / (b * b);
+
+            if (calculo < 18.50)
+            {
+                return "Você está abaixo do peso";
+            }
+            else if (calculo < 25.00)
+            {
+                return "Você está com o peso normal";
+            }
+            else if (calculo < 30)
+            {
+                return "Você está com sobrepeso";
+            }
+            else if (calculo < 35)
+            {
+                return "Você está com obesidade grau I";
+            }
+            else if (calculo < 40)
+            {
+                return "Você está com obesidade grau II";
+            }
+            else if (calculo >= 40)
+            {
+                return "Você está com obesidade grau III";
+            }
+            else
+            {
+                return "Invalido";
+            }
+        }
+
+        static void CalcularImc()
+        {
+            Console.WriteLine("Digite seu peso:");
+            double a = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite sua altura:");
+            double b = double.Parse(Console.ReadLine());
+            RetornaClassificacaoImc(a, b);
+        }
+
+        static double CalcularArea()
+        {
+            double resultado;
+            Console.WriteLine("Informe o raio do circulo");
+            double raio = double.Parse(Console.ReadLine());
+            resultado = 3.14 * (raio * raio);
+            return resultado;
+
+        }
+
+        static double CalcularRegra3()
+        {
+            double resultado;
+            Console.WriteLine("Informe valores A, B e C (na mesma linha)");
+            string[] vet2 = Console.ReadLine().Split(' ');
+            double n1 = double.Parse(vet2[0]);
+            double n2 = double.Parse(vet2[1]);
+            double n3 = double.Parse(vet2[2]);
+            resultado = (n1 * n3) / n2;
+
+            return resultado;
+            
+        }
+
         static void Main(string[] args)
         {
             var a = Menu();
-            double resultado;
 
             if (a == 1)
             {
-                Console.WriteLine("Informe primeiro seu peso e depois a sua altura (na mesma linha)");
-                string[] vet = Console.ReadLine().Split(' ');
-                int peso = int.Parse(vet[0]);
-                double altura = double.Parse(vet[1]);
-                resultado = peso / (altura * altura);
-                if (resultado < 18.50)
-                {
-                    Console.WriteLine("Você está abaixo do peso");
-                }
-                else if (resultado < 25.00)
-                {
-                    Console.WriteLine("Você está com o peso normal");
-                }
-                else if (resultado < 30)
-                {
-                    Console.WriteLine("Você está com sobrepeso");
-                }
-                else if (resultado < 35)
-                {
-                    Console.WriteLine("Você está com obesidade grau I");
-                }
-                else if (resultado < 40)
-                {
-                    Console.WriteLine("Você está com obesidade grau II");
-                }
-                else if (resultado >= 40)
-                {
-                    Console.WriteLine("Você está com obesidade grau III");
-                }
+                CalcularImc();
+ 
             }
 
             else if (a == 2)
             {
-                Console.WriteLine("Informe o raio do circulo");
-                int raio = int.Parse(Console.ReadLine());
-                resultado = 3.14 * (raio * raio);
-
-                Console.WriteLine("O resultado da area é: " + resultado);
+                CalcularArea();
             }
 
             else if (a == 3)
             {
-                Console.WriteLine("Informe valores A B e C (na mesma linha)");
-                string[] vet2 = Console.ReadLine().Split(' ');
-                int n1 = int.Parse(vet2[0]);
-                int n2 = int.Parse(vet2[1]);
-                int n3 = int.Parse(vet2[2]);
-
-                resultado = (n1 * n3) / n2;
-
-                Console.WriteLine("O valor de D é: " + resultado);
+                CalcularRegra3();
 
             }
             else if (a == 4)
             {
                 Console.WriteLine("FINALIZADO COM SUCESSO!");
             }
-
         }
 
     }
